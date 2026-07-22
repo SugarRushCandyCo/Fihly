@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,9 +12,8 @@
 @font-face {
     font-family: "Mochi Boom";
     src: url("mochi-boom-demo.regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
 }
+
 
 *{
     margin:0;
@@ -22,198 +22,323 @@
     font-family:"Mochi Boom", sans-serif;
 }
 
+
 body{
+
     height:100vh;
     overflow:hidden;
-    position:relative;
+
     display:flex;
     justify-content:center;
     align-items:center;
 
+    position:relative;
+
     background:
-        radial-gradient(circle at 50% -20%, rgba(255,255,255,.45), transparent 40%),
+        radial-gradient(circle at 50% -20%, rgba(255,255,255,.5), transparent 40%),
         linear-gradient(
             180deg,
             #8fe8ff 0%,
-            #6bcdf8 20%,
-            #4299e1 55%,
+            #6bcdf8 25%,
+            #4299e1 60%,
             #225c9e 100%
         );
+
 }
 
-/* Soft sunlight */
+
+/* SUN LIGHT */
 
 .sun{
+
     position:absolute;
+
     top:-250px;
     left:50%;
+
     transform:translateX(-50%);
+
     width:700px;
     height:700px;
-    background:radial-gradient(circle,rgba(255,255,255,.35),transparent 70%);
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.35),
+        transparent 70%);
+
     filter:blur(30px);
+
 }
 
-/* Light rays */
+
+
+/* WATER RAYS */
 
 .rays{
+
     position:absolute;
     inset:0;
 
     background:
-        repeating-linear-gradient(
-            105deg,
-            rgba(255,255,255,.04) 0px,
-            rgba(255,255,255,.04) 3px,
-            transparent 3px,
-            transparent 70px
-        );
+    repeating-linear-gradient(
+        110deg,
+        rgba(255,255,255,.05) 0px,
+        rgba(255,255,255,.05) 3px,
+        transparent 3px,
+        transparent 80px
+    );
 
-    opacity:.45;
+    opacity:.5;
+
 }
 
 
-/* Water movement */
+
+/* WATER MOVEMENT */
 
 .water{
+
     position:absolute;
     inset:0;
 
     background:
-        radial-gradient(circle at 20% 20%,rgba(255,255,255,.05),transparent 40%),
-        radial-gradient(circle at 80% 70%,rgba(255,255,255,.04),transparent 45%);
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(255,255,255,.05),transparent 45%);
 
-    animation:waterMove 18s ease-in-out infinite alternate;
+    animation:
+    waterMove 18s infinite alternate ease-in-out;
+
 }
 
+
 @keyframes waterMove{
+
     from{
         transform:translateY(0);
     }
 
     to{
-        transform:translateY(-30px);
+        transform:translateY(-35px);
     }
+
 }
 
 
-/* Fish */
+
+/* FISH */
 
 .fish{
+
     position:absolute;
-    opacity:.22;
+
+    opacity:.25;
+
     font-size:42px;
+
     animation:swim linear infinite;
+
 }
+
 
 .f1{
+
     top:20%;
     left:-100px;
+
     animation-duration:35s;
+
 }
+
 
 .f2{
-    top:55%;
+
+    top:50%;
     left:-120px;
+
     animation-duration:45s;
-    animation-delay:-10s;
+
+    animation-delay:-12s;
+
 }
+
 
 .f3{
+
     top:75%;
-    left:-80px;
+    left:-100px;
+
     animation-duration:55s;
+
     animation-delay:-25s;
+
 }
 
+
+
 @keyframes swim{
+
     from{
+
         transform:translateX(0);
+
     }
 
     to{
+
         transform:translateX(calc(100vw + 250px));
+
     }
+
 }
 
 
-/* Bubbles */
+
+
+/* BUBBLES */
+
 
 .bubble{
-    position:absolute;
-    bottom:-40px;
 
-    width:8px;
-    height:8px;
+    position:absolute;
+
+    bottom:-50px;
+
+    width:9px;
+    height:9px;
 
     border-radius:50%;
-    background:rgba(255,255,255,.25);
+
+    background:
+    rgba(255,255,255,.3);
 
     animation:float linear infinite;
+
 }
 
-.b1{left:18%;animation-duration:10s;}
-.b2{left:45%;animation-duration:14s;animation-delay:3s;}
-.b3{left:72%;animation-duration:11s;animation-delay:7s;}
-.b4{left:90%;animation-duration:15s;animation-delay:1s;}
+
+
+.b1{
+    left:15%;
+    animation-duration:10s;
+}
+
+.b2{
+    left:35%;
+    animation-duration:14s;
+    animation-delay:3s;
+}
+
+.b3{
+    left:60%;
+    animation-duration:12s;
+    animation-delay:6s;
+}
+
+.b4{
+    left:85%;
+    animation-duration:16s;
+    animation-delay:2s;
+}
+
+
 
 @keyframes float{
 
+
     from{
-        transform:translateY(0) scale(.7);
+
+        transform:
+        translateY(0)
+        scale(.7);
+
         opacity:0;
+
     }
 
-    15%{
+
+    20%{
+
         opacity:1;
+
     }
+
 
     to{
-        transform:translateY(-110vh) scale(1.3);
+
+        transform:
+        translateY(-110vh)
+        scale(1.4);
+
         opacity:0;
+
     }
+
 }
 
 
-/* Main */
+
+/* MAIN */
+
 
 .content{
+
     position:relative;
+
     z-index:10;
 
     text-align:center;
+
 }
+
 
 
 .logo{
-    font-size:70px;
-    margin-bottom:20px;
+
+    font-size:65px;
+
+    margin-bottom:15px;
 
     filter:
     drop-shadow(0 5px 15px rgba(0,0,0,.2));
+
 }
+
 
 
 h1{
-    font-family:"Mochi Boom";
+
+    color:white;
+
     font-size:76px;
+
     font-weight:400;
+
+    letter-spacing:-2px;
+
+    text-shadow:
+    0 5px 20px rgba(0,0,0,.15);
+
 }
+
 
 
 .subtitle{
 
-    margin-top:10px;
+    margin-top:12px;
 
-    color:rgba(255,255,255,.95);
+    color:
+    rgba(255,255,255,.95);
 
     font-size:20px;
 
-    font-weight:400;
+    line-height:1.5;
+
 }
 
 
-/* Button */
+
+/* BUTTON */
+
 
 .button-wrap{
 
@@ -228,57 +353,155 @@ h1{
     justify-content:center;
 
     z-index:20;
+
 }
+
 
 
 button{
 
+
     width:min(420px,88%);
+
 
     padding:18px;
 
 
-    background:rgba(255,255,255,.03);
-
-    border:2px solid rgba(255,255,255,.55);
-
-
     color:white;
+
+
+    background:
+    rgba(255,255,255,.03);
+
+
+    border:
+    2px solid rgba(255,255,255,.55);
+
 
     border-radius:22px;
 
 
     font-size:18px;
 
+
     font-weight:400;
 
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(15px);
 
 
     cursor:pointer;
 
 
-    transition:.25s ease;
+    transition:.25s;
+
 }
+
 
 
 button:hover{
 
-    background:rgba(255,255,255,.12);
+
+    background:
+    rgba(255,255,255,.15);
+
 
     border-color:white;
 
-    transform:translateY(-3px);
+
+    transform:
+    translateY(-4px);
+
 
 }
+
 
 
 button:active{
 
-    transform:scale(.98);
+    transform:scale(.97);
 
 }
 
+
 </style>
+
 </head>
+
+
+<body>
+
+
+<div class="sun"></div>
+
+<div class="rays"></div>
+
+<div class="water"></div>
+
+
+
+<!-- FISH -->
+
+<div class="fish f1">🐟</div>
+
+<div class="fish f2">🐠</div>
+
+<div class="fish f3">🐟</div>
+
+
+
+<!-- BUBBLES -->
+
+<div class="bubble b1"></div>
+
+<div class="bubble b2"></div>
+
+<div class="bubble b3"></div>
+
+<div class="bubble b4"></div>
+
+
+
+<!-- CONTENT -->
+
+
+<div class="content">
+
+
+    <div class="logo">
+        🎣
+    </div>
+
+
+    <h1>
+        Fihly
+    </h1>
+
+
+    <div class="subtitle">
+        Log every catch.<br>
+        Remember every adventure.
+    </div>
+
+
+</div>
+
+
+
+<div class="button-wrap">
+
+
+<button onclick="window.location.href='onboarding.html'">
+
+Start Onboarding
+
+</button>
+
+
+</div>
+
+
+
+</body>
+
+</html>
